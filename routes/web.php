@@ -1,16 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\clients\HomeController;
-use App\Http\Controllers\clients\AboutController;
-use App\Http\Controllers\clients\ServiceController;
-use App\Http\Controllers\clients\TourController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\TourController;
+
 
 // Route::get('/', function () {
 //     return view('home');
 // });
+Route::get('/', [IndexController::class, 'index'])->name('home');
+Route::get('/tour/{slug}', [IndexController::class, 'tour'])->name('tour');
+Route::get('/chi-tiet-tour/{slug}', [IndexController::class, 'detail_tour'])->name('chi-tiet-tour');
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::get('/service', [ServiceController::class, 'index'])->name('service');
-Route::get('/tour', [TourController::class, 'index'])->name('tour');
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
