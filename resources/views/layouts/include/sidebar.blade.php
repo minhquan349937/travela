@@ -50,14 +50,15 @@
                         <li class="nav-item">
                             <a href="./index3.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v3</p>
+                                <p>Thống kê</p>
                             </a>
                         </li>
                     </ul>
                 </li>
 
-                <li class="nav-item ">
-                    <a href="{{ route('home') }}" class="nav-link ">
+                <li
+                    class="nav-item {{ Request::segment(1) == 'categories' ? 'menu-is-opening menu-open' : '' }}menu-is-opening menu-open">
+                    <a href="{{ route('categories.index') }}" class="nav-link ">
                         <i class="nav-icon fas fa-folder-open"></i>
                         <p>
                             Categories
@@ -67,14 +68,44 @@
                     <ul class="nav nav-treeview">
 
                         <li class="nav-item">
-                            <a href="./index3.html" class="nav-link ">
+                            <a href="{{ route('categories.create') }}" class="nav-link ">
                                 <i class="fa-solid fa-gears"></i>
                                 <p>Create Category</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('categories.index') }}" class="nav-link ">
+                                <i class="fa-solid fa-gears"></i>
+                                <p>List Categories</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
+                <li
+                    class="nav-item {{ Request::segment(1) == 'tours' ? 'menu-is-opening menu-open' : '' }}menu-is-opening menu-open">
+                    <a href="{{ route('categories.index') }}" class="nav-link ">
+                        <i class="nav-icon fas fa-folder-open"></i>
+                        <p>
+                            Tours
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
 
+                        <li class="nav-item">
+                            <a href="{{ route('tours.create') }}" class="nav-link ">
+                                <i class="fa-solid fa-gears"></i>
+                                <p>Create Tour</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('tours.index') }}" class="nav-link ">
+                                <i class="fa-solid fa-gears"></i>
+                                <p>List Tour</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

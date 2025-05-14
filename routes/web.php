@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
-use App\Http\Controllers\TourController;
-
+use App\Http\Controllers\ToursController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\GalleryController;
 
 // Route::get('/', function () {
 //     return view('home');
@@ -17,3 +18,12 @@ Route::get('/chi-tiet-tour/{slug}', [IndexController::class, 'detail_tour'])->na
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('categories', CategoriesController::class);
+
+Route::resource('tours', ToursController::class);
+
+
+Route::resource('gallery', GalleryController::class);
+
+

@@ -256,13 +256,14 @@
                         <div class="cl-logo fl">
                             <h1 class="logo">
                                 <a href="https://vietnamtravel.net.vn/vi/trang-chu.html"><img alt="du lịch"
-                                        src="imgs/logo-viet-nam-travel.png" alt="logo" /></a>
+                                        src="{{ asset('frontend/imgs/logo-viet-nam-travel.png') }}"
+                                        alt="logo" /></a>
                             </h1>
                         </div>
                         <div class="cl-bnt fl">
                             <div class="banner-top">
                                 <a href="https://vietnamtravel.net.vn/vi/trang-chu.html"><img alt="du lịch"
-                                        src="imgs/banner-top.jpg" alt="banner top"></a>
+                                        src="{{ asset('frontend/imgs/banner-top.jpg') }}" alt="banner top"></a>
                             </div>
                         </div>
                         <div class="cl-right-lang fr">
@@ -364,11 +365,13 @@
     <div class="container-fluid">
         <div class="slider-wrapper theme-default">
             <div id="slider-master" class="nivoSlider">
-                <a href="https://vietnamtravel.net.vn/vi/loai-tour/30-4/1.html"><img src="imgs/bai-dinh-trang-an.jpg"
-                        data-thumb="imgs/bai-dinh-trang-an.jpg" alt="aa" title="" /></a>
-                <a href=""><img src="imgs/phu-quoc-hon-mong-tay-vietnam-travel.jpg"
-                        data-thumb="imgs/phu-quoc-hon-mong-tay-vietnam-travel.jpg" alt="aa"
+                <a href="https://vietnamtravel.net.vn/vi/loai-tour/30-4/1.html"><img
+                        src="{{ asset('frontend/imgs/bai-dinh-trang-an.jpg') }}"
+                        data-thumb="{{ asset('frontend/imgs/bai-dinh-trang-an.jpg') }}" alt="aa"
                         title="" /></a>
+                <a href=""><img src="{{ asset('frontend/imgs/phu-quoc-hon-mong-tay-vietnam-travel.jpg') }}"
+                        data-thumb="{{ asset('frontend/imgs/phu-quoc-hon-mong-tay-vietnam-travel.jpg') }}"
+                        alt="aa" title="" /></a>
             </div>
         </div>
     </div>
@@ -599,24 +602,24 @@
             <div class="row">
                 <div class="col-md-3 col-xs-6 cl-mb-half-0">
                     <div class="bximg-request-dd">
-                        <a href="https://vietnamtravel.net.vn/vi/san-pham/137-du-lich-thai-lan.html">
-                            <img src="imgs/thai-lan.jpg" alt="Du lịch Thái Lan">
+                        <a href="#">
+                            <img src="{{ asset('frontend/imgs/thai-lan.jpg') }}" alt="Du lịch Thái Lan">
                             <div class="capition-dd"><i class="fa fa-map-marker"></i> Du lịch Thái Lan</div>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-6 cl-mb-half-1">
                     <div class="bximg-request-dd">
-                        <a href="https://vietnamtravel.net.vn/vi/san-pham/145-du-lich-chau-au.html">
-                            <img src="imgs/chau-au.jpg" alt="Du lịch Châu Âu">
+                        <a href="#">
+                            <img src="{{ asset('frontend/imgs/chau-au.jpg') }}" alt="Du lịch Châu Âu">
                             <div class="capition-dd"><i class="fa fa-map-marker"></i> Du lịch Châu Âu</div>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-6 col-xs-12">
                     <div class="bximg-request-dd">
-                        <a href="https://vietnamtravel.net.vn/vi/san-pham/139-du-lich-han-quoc.html">
-                            <img src="imgs/han-quoc.jpg" alt="Du lịch Hàn Quốc">
+                        <a href="#">
+                            <img src="{{ asset('frontend/imgs/han-quoc.jpg') }}" alt="Du lịch Hàn Quốc">
                             <div class="capition-dd"><i class="fa fa-map-marker"></i> Du lịch Hàn Quốc</div>
                         </a>
                     </div>
@@ -625,24 +628,25 @@
                 <div class="w100 fl top-30 khkhkocog"></div>
                 <div class="col-md-6 col-xs-12">
                     <div class="bximg-request-dd">
-                        <a href="https://vietnamtravel.net.vn/vi/san-pham/156-du-lich-singapore-malaysia.html">
-                            <img src="imgs/du-lich-sing%20620x283.jpg" alt="Du lịch Singapore Malaysia">
+                        <a href="#">
+                            <img src="{{ asset('frontend/imgs/du-lich-sing%20620x283.jpg') }}"
+                                alt="Du lịch Singapore Malaysia">
                             <div class="capition-dd"><i class="fa fa-map-marker"></i> Du lịch Singapore Malaysia</div>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-6 cl-mb-half-4">
                     <div class="bximg-request-dd">
-                        <a href="https://vietnamtravel.net.vn/vi/san-pham/156-du-lich-singapore-malaysia.html">
-                            <img src="imgs/Bali-%20Indo.jpg" alt="Du lịch Bali Indonesia">
+                        <a href="#">
+                            <img src="{{ asset('frontend/imgs/Bali-%20Indo.jpg') }}" alt="Du lịch Bali Indonesia">
                             <div class="capition-dd"><i class="fa fa-map-marker"></i> Du lịch Bali Indonesia</div>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-6 cl-mb-half-5">
                     <div class="bximg-request-dd">
-                        <a href="https://vietnamtravel.net.vn/vi/san-pham/66-du-lich-da-nang-hoi-an-hue.html">
-                            <img src="imgs/da-nang.jpg" alt="Du lịch Đà Nẵng Hội An Huế">
+                        <a href="#">
+                            <img src="{{ asset('frontend/imgs/da-nang.jpg') }}" alt="Du lịch Đà Nẵng Hội An Huế">
                             <div class="capition-dd"><i class="fa fa-map-marker"></i> Du lịch Đà Nẵng Hội An Huế</div>
                         </a>
                     </div>
@@ -660,7 +664,7 @@
                 <div class="w100 fl item-lst-pos1">
                     <a
                         href="https://vietnamtravel.net.vn/vi/ct/100-10-diem-den-duoc-nguoi-viet-yeu-thich-nhat-trong-nam-2018.html">
-                        <img src="/media/images/tin-tuc/thumb_9394578.jpg"
+                        <img src="{{ '/media/images/tin-tuc/thumb_9394578.jpg' }}"
                             alt="10 điểm đến được người Việt yêu thích nhất trong năm 2018">
                     </a>
                     <a href="https://vietnamtravel.net.vn/vi/ct/100-10-diem-den-duoc-nguoi-viet-yeu-thich-nhat-trong-nam-2018.html"
@@ -673,7 +677,7 @@
                 <div class="w100 fl item-lst-pos1">
                     <a
                         href="https://vietnamtravel.net.vn/vi/ct/96-cam-nang-di-du-lich-da-nang-tat-tan-tat-tu-a-z-vo-cung-re.html">
-                        <img src="/media/images/tin-tuc/du-lich-da-nang.jpg"
+                        <img src="{{ '/media/images/tin-tuc/du-lich-da-nang.jpg' }}"
                             alt="Cẩm nang đi du lịch Đà Nẵng tất tần tật từ A -> Z vô cùng rẻ">
                     </a>
                     <a href="https://vietnamtravel.net.vn/vi/ct/96-cam-nang-di-du-lich-da-nang-tat-tan-tat-tu-a-z-vo-cung-re.html"
@@ -690,7 +694,7 @@
                 </div>
                 <div class="w100 fl item-lst-pos2">
                     <a href="https://vietnamtravel.net.vn/vi/ct/88-top-10-cong-ty-du-lich-hang-dau-hang-dau.html"><img
-                            src="/media/images/logo/Untitled-1.jpg"
+                            src="{{ '/media/images/logo/Untitled-1.jpg' }}"
                             alt="Tốp 10 công ty du lịch hàng đầu  hàng đầu"></a>
                     <a href="https://vietnamtravel.net.vn/vi/ct/88-top-10-cong-ty-du-lich-hang-dau-hang-dau.html"
                         class="ctlist-right">
@@ -701,7 +705,7 @@
                 </div>
                 <div class="w100 fl item-lst-pos2">
                     <a href="https://vietnamtravel.net.vn/vi/ct/82-hon-18-nam-kinh-nghiem.html"><img
-                            src="/media/images/logo/18_kinhnghiem_vn.jpg" alt="Hơn 18 năm kinh nghiệm"></a>
+                            src="{{ '/media/images/logo/18_kinhnghiem_vn.jpg' }}" alt="Hơn 18 năm kinh nghiệm"></a>
                     <a href="https://vietnamtravel.net.vn/vi/ct/82-hon-18-nam-kinh-nghiem.html" class="ctlist-right">
                         <h4>Hơn 18 năm kinh nghiệm</h4>
                         <p>Với 18 năm&nbsp;kinh nghiệm&nbsp;trong lĩnh vực lữ h&agrave;nh, ... mong muốn mang đến cho
@@ -710,7 +714,7 @@
                 </div>
                 <div class="w100 fl item-lst-pos2">
                     <a href="https://vietnamtravel.net.vn/vi/ct/81-dich-vu-247.html"><img
-                            src="/media/images/logo/uytin_24_7.jpg" alt="Dịch vụ 24/7"></a>
+                            src="{{ '/media/images/logo/uytin_24_7.jpg' }}" alt="Dịch vụ 24/7"></a>
                     <a href="https://vietnamtravel.net.vn/vi/ct/81-dich-vu-247.html" class="ctlist-right">
                         <h4>Dịch vụ 24/7</h4>
                         <p>Đội ngũ c&aacute;n bộ nh&acirc;n vi&ecirc;n nhiệt t&igrave;nh&nbsp;v&agrave; s&aacute;ng tạo.

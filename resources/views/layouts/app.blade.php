@@ -16,6 +16,8 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/2.3.0/css/dataTables.dataTables.min.css">
 
 </head>
 <!--
@@ -216,6 +218,17 @@
     {{-- <script src="{{ asset('backend/dist/js/demo.js') }}"></script> --}}
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('backend/dist/js/pages/dashboard3.js') }}"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+    <script src=" //cdn.datatables.net/2.3.0/js/dataTables.min.js"></script>
+    <script>
+        let table = new DataTable('#myTable');
+    </script>
+    <script>
+        $(function() {
+            $("#departure_date").datepicker();
+            $("#return_date").datepicker();
+        });
+    </script>
 </body>
 
 </html>
