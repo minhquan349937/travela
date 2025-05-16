@@ -37,10 +37,39 @@
 
                     </div>
                 </div>
+                {{-- <div class="form-group">
+                    <label for="exampleInputFile">thuộc danh mục</label>
+                    <select class="form-control" name="category_parent">
+                        <option value="0">Chọn danh mục</option>
+                        @foreach ($categories as $key => $cat)
+                            <option value="{{ $cat->id }}">{{ $cat->title }}</option>
+                        @endforeach
+                    </select>
+                </div> --}}
+                <div class="form-group">
+                    <label for="exampleInputFile">thuộc danh mục</label>
+                    <select class="form-control" name="category_parent">
+                        <option value="0">Chọn danh mục</option>
+                        @foreach ($categories as $key => $cat)
+                            <option value="{{ $cat->id }}">
+                                @php
+                                    $str = '';
+                                    for ($i = 0; $i < $cat->level; $i++) {
+                                        echo $str;
+                                        $str .= '-- ';
+                                    }
+                                @endphp
+
+                                {{ $cat->title }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="form-check">
                     <input type="checkbox" value="1" name="status" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Status</label>
                 </div>
+
             </div>
             <!-- /.card-body -->
 

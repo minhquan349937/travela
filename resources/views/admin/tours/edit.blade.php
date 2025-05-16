@@ -21,34 +21,34 @@
             @csrf
             <div class="card-body">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Title tour</label>
+                    <label for="exampleInputEmail1">Tên tour</label>
                     <input class="form-control" value="{{ $tour->title }}" id="exampleInputEmail1"
                         placeholder="Enter Title" name="title">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Quantity</label>
+                    <label for="exampleInputPassword1">Số chỗ trống</label>
                     <input class="form-control" value="{{ $tour->quantity }}" name="quantity" id="exampleInputPassword1"
                         placeholder="quantity">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Description</label>
+                    <label for="exampleInputPassword1">Mô tả</label>
                     <input class="form-control" value="{{ $tour->description }}" name="description"
                         id="exampleInputPassword1" placeholder="description">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Price tour</label>
+                    <label for="exampleInputPassword1">Giá Tour</label>
                     <input class="form-control" value="{{ $tour->price }}" name="price" id="exampleInputPassword1"
                         placeholder="price">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Vehicle</label>
+                    <label for="exampleInputPassword1">Phương tiện</label>
                     <input class="form-control" value="{{ $tour->vehicle }}" name="vehicle" id="exampleInputPassword1"
                         placeholder="Vehicle">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Ngày đi</label>
                     <input class="form-control" value="{{ $tour->departure_date }}" name="departure_date"
-                        id="departure_date" placeholder="Ngày đi">
+                        id="departure_dates" placeholder="Ngày đi">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Ngày về</label>
@@ -56,17 +56,17 @@
                         placeholder="Ngày về">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Tour_form</label>
+                    <label for="exampleInputPassword1">Nơi đi</label>
                     <input class="form-control" value="{{ $tour->tour_form }}" name="tour_form" id="exampleInputPassword1"
                         placeholder="tour_form">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Tour_to</label>
+                    <label for="exampleInputPassword1">Nơi đến</label>
                     <input class="form-control" value="{{ $tour->tour_to }}" name="tour_to" id="exampleInputPassword1"
                         placeholder="tour_to">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Tour_time</label>
+                    <label for="exampleInputPassword1">Thời gian</label>
                     <input class="form-control" value="{{ $tour->tour_time }}" name="tour_time" id="exampleInputPassword1"
                         placeholder="tour_time">
                 </div>
@@ -82,7 +82,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputFile">File images</label>
+                    <label for="exampleInputFile">Ảnh</label>
                     <div class="input-group">
                         <div class="custom-file">
                             <input type="file" name= "image" class="form-control-file" id="exampleInputFile">
@@ -94,13 +94,13 @@
                 <div class="form-check">
                     <input type="checkbox" value="1" {{ $tour->status == 1 ? 'checked' : '' }} name="status"
                         class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Status</label>
+                    <label class="form-check-label" for="exampleCheck1">Trạng thái</label>
                 </div>
             </div>
             <!-- /.card-body -->
 
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary">Chỉnh sửa</button>
             </div>
         </form>
     </div>

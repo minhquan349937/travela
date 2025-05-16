@@ -23,15 +23,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="image/x-icon" href="https://vietnamtravel.net.vn/favicon.ico" rel="shortcut icon" />
-    <title> Du lịch Việt nam - VietnamTravel </title>
+    <title> Tour du lịch </title>
     <meta name="keywords"
-        content="Vietnamtravel, Công Ty Du Lịch Vietnamtravel, Du Lịch Thái Lan, Du Lịch Singapore, Du Lịch Malaysia, Du Lịch Campuchia, Du Lịch Myanmar, Du Lịch Lào, Du Lịch Australia, Du Lịch Ai Cập, Du Lịch Trung Quốc, Du Lịch HongKong, Du Lịch Đài Loan , Du Lịch Hàn Q" />
+        content="Vietnamtravel, Công Ty Du Lịch Vietnamtravel, Du Lịch Thái Lan, Du Lịch Singapore, Du Lịch Malaysia, Du Lịch Campuchia, Du Lịch Myanmar, Du Lịch Lào" />
     <meta name="author" content="vietnamtravel.net.vn">
     <meta property="og:site_name" content="Du lịch Việt nam - VietnamTravel" />
     <meta property="og:image" content="" />
     <meta property="og:title" content="Du lịch Việt nam - VietnamTravel" />
     <meta property="og:description"
-        content="Vietnam Travel được vinh danh tại giải thưởng du lịch danhh giá World Travel Awards với danh hiệu Nhà điều hành tour trọn gói hàng đầu thế giới, dịch vụ uy tín, khởi hành đúng lịch; dịch vụ hạng sang; giá tốt nhất thị trường; đã đi là thích." />
+        content="Vietnam Travel được vinh danh tại giải thưởng du lịch danhh giá World Travel Awards với danh hiệu Nhà điều hành tour trọn gói hàng đầu thế giới" />
     <meta property="og:url" content="https://vietnamtravel.net.vn/vi/trang-chu.html" />
     <meta property="og:type" content="website" />
     <link href="{{ asset('frontend/css/jquery-ui.min.css') }}" rel="stylesheet">
@@ -56,6 +56,24 @@
     <script src="{{ asset('frontend/js/owl.carousel.min.js') }}" type="text/javascript"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <!-- Js menu mobile-->
+    <script>
+        jQuery(document).ready(function() {
+
+            jQuery(".owl-gallery-tour").owlCarousel({
+                slideSpeed: 1000,
+                autoPlay: true,
+                gotoFirst: true,
+                gotoFirstSpeed: 1000,
+                responsive: true,
+                items: 2,
+                itemsDesktop: [1199, 4],
+                itemsDesktopSmall: [979, 3],
+                itemsTablet: [768, 2],
+                itemsMobile: [479, 1],
+            });
+
+        });
+    </script>
     <script>
         $(document).ready(function(e) {
             $(".arrown_menu_accordion").click(function() {
@@ -112,7 +130,7 @@
         });
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128213416-1"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -124,7 +142,7 @@
         gtag('config', 'AW-882166916');
         gtag('config', 'AW-963923892');
     </script>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({
             google_ad_client: "ca-pub-6019637857371569",
@@ -155,7 +173,7 @@
 
     <div class="menu_mobile" style="visibility: hidden;">
         <span class="close_menu_mobile"></span>
-        <div class="menu_accordion">
+        {{-- <div class="menu_accordion">
             <ul class="ul_ma_1">
                 <li>
                     <a href="https://vietnamtravel.net.vn/vi/san-pham/1-du-lich-trong-nuoc.html">Du lịch trong nước</a>
@@ -200,35 +218,6 @@
                 </li>
 
                 <li>
-                    <a href="#">Lịch khởi hành</a>
-                    <i class="arrown_menu_accordion" val="sub_ac_547"></i>
-                    <i class="fa fa-angle-down arrown_menu_accordion" aria-hidden="true" val="sub_ac_547"></i>
-                    <ul class="ul_ma_2" id="sub_ac_547" style="display:none;">
-                        <li>
-                            <a href="/vi/danh-sach-lich-trinh-tour/1-du-lich-trong-nuoc.html">Tour trong nước</a>
-                        </li>
-                        <li>
-                            <a href="/vi/danh-sach-lich-trinh-tour/84-du-lich-nuoc-ngoai.html">Tour nước ngoài</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/vi/loai-tour/30-4/all.html">Tour Hè 2023</a>
-                    <i class="arrown_menu_accordion" val="sub_ac_508"></i>
-                    <i class="fa fa-angle-down arrown_menu_accordion" aria-hidden="true" val="sub_ac_508"></i>
-                    <ul class="ul_ma_2" id="sub_ac_508" style="display:none;">
-                        <li>
-                            <a href="/vi/loai-tour/30-4/1.html">Du lịch trong nước</a>
-                        </li>
-                        <li>
-                            <a href="/vi/loai-tour/30-4/84.html">Du lịch Nước Ngoài</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="http://vietnamtravel.net.vn/vi/tin/77-cam-nang-du-lich.html">Cẩm nang du lịch</a>
-                </li>
-                <li>
                     <a href="https://vietnamtravel.net.vn/vi/tin/92-dich-vu-hoan-hao.html">Dịch vụ</a>
                     <i class="arrown_menu_accordion" val="sub_ac_507"></i>
                     <i class="fa fa-angle-down arrown_menu_accordion" aria-hidden="true" val="sub_ac_507"></i>
@@ -246,7 +235,7 @@
                     <a href="/vi/tin/1-gioi-thieu.html">Giới thiệu</a>
                 </li>
             </ul>
-        </div>
+        </div> --}}
     </div>
     <header id="header-web">
         <div class="header-top w100">
@@ -282,7 +271,7 @@
                                 </ul>
                                 <div class="hot-line-rh">
                                     <a class="title-r1h" href="tel:">Hotline hỗ trợ 24/7</a>
-                                    <a class="hotline-r1h" href="tel:">0913 073 026 / 098 444 1944</a>
+                                    <a class="hotline-r1h" href="tel:">0383041692</a>
                                 </div>
                             </div>
                         </div>
@@ -306,31 +295,61 @@
                                     </a>
                                     <ul>
                                         <li class="" style="border-color:white">
-                                            <a href="{{ route('tour', ['du-lich-noi-dia']) }}" class="">
-                                                <i class="fa fa-map-marker"></i> Du lịch Hà Nội Hạ Long Sapa
+                                            <a href="{{ route('tour', ['du-lich-mien-bac']) }}" class="">
+                                                <i class="fa fa-map-marker"></i> Du lịch Miền Bắc
                                             </a>
                                         </li>
 
                                         <li class="" style="border-color:white">
-                                            <a href="{{ route('tour', ['du-lich-noi-dia']) }}" class="">
-                                                <i class="fa fa-map-marker"></i> Du lịch Đà Nẵng Hội An Huế
+                                            <a href="{{ route('tour', ['du-lich-mien-trung']) }}" class="">
+                                                <i class="fa fa-map-marker"></i> Du lịch Miền Trung
                                             </a>
                                         </li>
 
                                         <li class="" style="border-color:white">
-                                            <a href="{{ route('tour', ['du-lich-noi-dia']) }}" class="">
-                                                <i class="fa fa-map-marker"></i> Du Lịch Vũng Tàu Côn Đảo
+                                            <a href="{{ route('tour', ['du-lich-mien-nam']) }}" class="">
+                                                <i class="fa fa-map-marker"></i> Du Lịch Miền Nam
+                                            </a>
+                                        </li>
+
+
+                                    </ul>
+                                </li>
+                                <li class="megamenusub" style="border-color:white">
+                                    <a href="{{ route('tour', ['du-lich-noi-dia']) }}" class=" 'active' ">
+                                        Du lịch nước ngoài
+                                    </a>
+                                    <ul>
+                                        <li class="" style="border-color:white">
+                                            <a href="{{ route('tour', ['du-lich-han-quoc']) }}" class="">
+                                                <i class="fa fa-map-marker"></i> Du lịch Hàn Quốc
+                                            </a>
+                                        </li>
+
+                                        <li class="" style="border-color:white">
+                                            <a href="{{ route('tour', ['du-lich-thai-lan']) }}" class="">
+                                                <i class="fa fa-map-marker"></i> Du lịch Thái Lan
+                                            </a>
+                                        </li>
+
+                                        <li class="" style="border-color:white">
+                                            <a href="{{ route('tour', ['du-lich-uc']) }}" class="">
+                                                <i class="fa fa-map-marker"></i> Du Lịch Úc
                                             </a>
                                         </li>
                                         <li class="" style="border-color:white">
-                                            <a href="{{ route('tour', ['du-lich-noi-dia']) }}" class="">
-                                                <i class="fa fa-map-marker"></i> Du lịch đảo ngọc Phú Quốc
+                                            <a href="{{ route('tour', ['du-lich-singapore']) }}" class="">
+                                                <i class="fa fa-map-marker"></i> Du lịch Singapore
+                                            </a>
+                                        </li>
+                                        <li class="" style="border-color:white">
+                                            <a href="{{ route('tour', ['du-lich-nhat-ban']) }}" class="">
+                                                <i class="fa fa-map-marker"></i> Du lịch Nhật Bản
                                             </a>
                                         </li>
 
                                     </ul>
                                 </li>
-
                                 <li class="" style="border-color:white">
                                     <a href="#" class=" 'active' ">
                                         Dịch vụ
@@ -531,19 +550,14 @@
                                 id="chose-option-diemden-qt">
                                 <option value="">Nơi đến</option>
                                 <option value="137">Du lịch Thái Lan</option>
-                                <option value="143">Du lịch Campuchia</option>
-                                <option value="156">Du lịch Singapore Malaysia</option>
-                                <option value="160">Du lịch Myanmar</option>
+                                <option value="156">Du lịch Singapore</option>
                                 <option value="144">Du lịch Trung Quốc</option>
-                                <option value="142">Du lịch Hồng Kông</option>
-                                <option value="154">Du lịch Lào</option>
                                 <option value="139">Du lịch Hàn Quốc</option>
                                 <option value="145">Du lịch Châu Âu</option>
                                 <option value="158">Du Lịch Úc</option>
                                 <option value="140">Du lịch Nhật Bản</option>
                                 <option value="157">Du lịch Dubai</option>
                                 <option value="141">Du lịch Đài Loan</option>
-                                <option value="161">Du lịch Maldives</option>
                             </select>
                         </div>
                         <div class="form-group col-dk-2 col-md-4 col-xs-12">
@@ -553,13 +567,6 @@
                         <div class="form-group col-dk-2 col-md-4 col-xs-12" style="display: none">
                             <input id="end_date" class="form-control" type="text" name="end_date"
                                 value="" placeholder="Ngày về">
-                        </div>
-                        <div class="form-group col-dk-2 col-md-4 col-xs-12">
-                            <select class="form-control" name="promotion">
-                                <option value="">Giảm giá</option>
-                                <option value="yes">Có</option>
-                                <option value="no">Không</option>
-                            </select>
                         </div>
                         <div class="form-group col-dk-2 col-md-4 col-xs-12">
                             <select class="form-control" name="price">
@@ -600,57 +607,37 @@
         </div>
         <div class="col-md-12 col-xs-12 top-30 lst-tour-position">
             <div class="row">
-                <div class="col-md-3 col-xs-6 cl-mb-half-0">
-                    <div class="bximg-request-dd">
-                        <a href="#">
-                            <img src="{{ asset('frontend/imgs/thai-lan.jpg') }}" alt="Du lịch Thái Lan">
-                            <div class="capition-dd"><i class="fa fa-map-marker"></i> Du lịch Thái Lan</div>
-                        </a>
-                    </div>
+                <style>
+                    .equal-height-row {
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
+
+                    .bximg-request-dd {
+                        display: flex;
+                        flex-direction: column;
+                        height: 100%;
+                        /* Ensures equal height */
+                    }
+                </style>
+                <div class="row equal-height-row">
+                    @foreach ($category_footer as $key => $category_foot)
+                        <div class="col-md-3 col-xs-6 cl-mb-half-0">
+                            <div class="bximg-request-dd">
+                                <a target="_blank" href="{{ route('tour', [$category_foot->slug]) }}">
+                                    <img src="{{ asset('uploads/categories/' . $category_foot->image) }}"
+                                        alt="{{ $category_foot->title }}">
+                                    <div class="capition-dd"><i class="fa fa-map-marker"></i>
+                                        {{ $category_foot->title }}
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-                <div class="col-md-3 col-xs-6 cl-mb-half-1">
-                    <div class="bximg-request-dd">
-                        <a href="#">
-                            <img src="{{ asset('frontend/imgs/chau-au.jpg') }}" alt="Du lịch Châu Âu">
-                            <div class="capition-dd"><i class="fa fa-map-marker"></i> Du lịch Châu Âu</div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xs-12">
-                    <div class="bximg-request-dd">
-                        <a href="#">
-                            <img src="{{ asset('frontend/imgs/han-quoc.jpg') }}" alt="Du lịch Hàn Quốc">
-                            <div class="capition-dd"><i class="fa fa-map-marker"></i> Du lịch Hàn Quốc</div>
-                        </a>
-                    </div>
-                </div>
-                <div class="clear"></div>
-                <div class="w100 fl top-30 khkhkocog"></div>
-                <div class="col-md-6 col-xs-12">
-                    <div class="bximg-request-dd">
-                        <a href="#">
-                            <img src="{{ asset('frontend/imgs/du-lich-sing%20620x283.jpg') }}"
-                                alt="Du lịch Singapore Malaysia">
-                            <div class="capition-dd"><i class="fa fa-map-marker"></i> Du lịch Singapore Malaysia</div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-xs-6 cl-mb-half-4">
-                    <div class="bximg-request-dd">
-                        <a href="#">
-                            <img src="{{ asset('frontend/imgs/Bali-%20Indo.jpg') }}" alt="Du lịch Bali Indonesia">
-                            <div class="capition-dd"><i class="fa fa-map-marker"></i> Du lịch Bali Indonesia</div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-xs-6 cl-mb-half-5">
-                    <div class="bximg-request-dd">
-                        <a href="#">
-                            <img src="{{ asset('frontend/imgs/da-nang.jpg') }}" alt="Du lịch Đà Nẵng Hội An Huế">
-                            <div class="capition-dd"><i class="fa fa-map-marker"></i> Du lịch Đà Nẵng Hội An Huế</div>
-                        </a>
-                    </div>
-                </div>
+
+
+
             </div>
         </div>
     </div>
@@ -671,7 +658,7 @@
                         class="ctlist-right">
                         <h4>10 điểm đến được người Việt yêu thích nhất trong năm 2018</h4>
                         <p>Theo số liệu thống k&ecirc; số kh&aacute;ch du lịch của tổng cục du lịch,10 điểm đến được
-                            người Việt y&ecirc;u th&iacute;ch nhất trong năm...</p>
+                            người Việt yêu thích nhất trong năm...</p>
                     </a>
                 </div>
                 <div class="w100 fl item-lst-pos1">
@@ -972,6 +959,7 @@
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-MRGZMJD');
     </script>
+    @stack('scripts')
     <!-- End Google Tag Manager -->
 </body>
 <script>

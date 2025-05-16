@@ -55,13 +55,35 @@
                         </li>
                     </ul>
                 </li>
-
+                <li class="nav-item  ">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Tour đã đặt
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item {{ Request::segment(1) == 'booking' ? 'menu-is-opening menu-open' : '' }}">
+                            <a href="{{ route('booking.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tất cả các tour</p>
+                            </a>
+                        </li>
+                        {{-- <li class="nav-item">
+                            <a href="./index3.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tất cả các tour</p>
+                            </a>
+                        </li> --}}
+                    </ul>
+                </li>
                 <li
                     class="nav-item {{ Request::segment(1) == 'categories' ? 'menu-is-opening menu-open' : '' }}menu-is-opening menu-open">
                     <a href="{{ route('categories.index') }}" class="nav-link ">
                         <i class="nav-icon fas fa-folder-open"></i>
                         <p>
-                            Categories
+                            Danh mục tour
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -70,13 +92,13 @@
                         <li class="nav-item">
                             <a href="{{ route('categories.create') }}" class="nav-link ">
                                 <i class="fa-solid fa-gears"></i>
-                                <p>Create Category</p>
+                                <p>Tạo danh mục</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('categories.index') }}" class="nav-link ">
                                 <i class="fa-solid fa-gears"></i>
-                                <p>List Categories</p>
+                                <p>Danh sách danh mục</p>
                             </a>
                         </li>
                     </ul>
@@ -95,13 +117,13 @@
                         <li class="nav-item">
                             <a href="{{ route('tours.create') }}" class="nav-link ">
                                 <i class="fa-solid fa-gears"></i>
-                                <p>Create Tour</p>
+                                <p>Thêm Tour</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('tours.index') }}" class="nav-link ">
                                 <i class="fa-solid fa-gears"></i>
-                                <p>List Tour</p>
+                                <p>Danh sách Tour</p>
                             </a>
                         </li>
                     </ul>

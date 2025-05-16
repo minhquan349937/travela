@@ -42,11 +42,11 @@ class ToursController extends Controller
             'category_id' => 'required',
             'vehicle' => 'required',
             'departure_date' => 'required',
-            'return_date' => 'required',
+            'return_date' => 'nullable|date|after:departure_date',
             'tour_form' => 'required',
             'tour_to' => 'required',
             'tour_time' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required',
             'status' => 'required',
         ],[
             'title.required' => 'Vui lòng nhập tên tour',
@@ -58,7 +58,7 @@ class ToursController extends Controller
             'price.numeric' => 'Giá tour phải là số',
             'vehicle.required' => 'Vui lòng nhập phương tiện di chuyển',
             'departure_date.required' => 'Vui lòng chọn ngày khởi hành',
-            'return_date.required' => 'Vui lòng chọn ngày',
+           
             'return_date.after' => 'Ngày trở về phải sau ngày khởi hành',
             'tour_form.required' => 'Vui lòng nhập nơi khởi hành',
             'tour_to.required' => 'Vui lòng nhập nơi đến',
@@ -74,7 +74,7 @@ class ToursController extends Controller
         $tour->price = $data['price'];
         $tour->category_id = $data['category_id'];
         $tour->vehicle = $data['vehicle'];
-        $tour->departure_date = $data['departure_date']; 
+        $tour->departure_date = json_encode($data['departure_date']); 
         $tour->return_date = $data['return_date'];
         $tour->tour_form = $data['tour_form'];
         $tour->tour_to = $data['tour_to'];
@@ -129,7 +129,7 @@ class ToursController extends Controller
             'category_id' => 'required',
             'vehicle' => 'required',
             'departure_date' => 'required',
-            'return_date' => 'required',
+            'return_date' => 'nullable|date|after:departure_date',
             'tour_form' => 'required',
             'tour_to' => 'required',
             'tour_time' => 'required',
@@ -144,7 +144,6 @@ class ToursController extends Controller
             'price.numeric' => 'Giá tour phải là số',
             'vehicle.required' => 'Vui lòng nhập phương tiện di chuyển',
             'departure_date.required' => 'Vui lòng chọn ngày khởi hành',
-            'return_date.required' => 'Vui lòng chọn ngày',
             'return_date.after' => 'Ngày trở về phải sau ngày khởi hành',
         ]);
 

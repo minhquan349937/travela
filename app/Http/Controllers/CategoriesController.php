@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Monolog\Level;
 use Str;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class CategoriesController extends Controller
 {
@@ -24,9 +27,17 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-         return view('admin.categories.create');
+        //$categories = Category::orderBy('id', 'DESC')->get();
+        $categories = $this->getCategoriesProduct();
+        return view('admin.categories.create', compact('categories'));
     }
-
+    public function getCategoriesProduct()
+    {
+        $categories = Category::orderBy('id', 'DESC')->get();
+        $listCategory = [];
+        Category::recursive($categories , $parents= 0 , $level = 1 ,$listCategory);
+        return $listCategory;
+    }
     /**
      * Store a newly created resource in storage.
      */
@@ -35,8 +46,9 @@ class CategoriesController extends Controller
         $data = $request->validate([
             'title' => 'required|unique:categories|max:255',
             'description' => 'required|max:200',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required',
             'status' => 'required',
+            'category_parent' => 'required',
         ],[
             'title.required' => 'Vui lòng nhập tên danh mục',
             'title.unique' => 'Tên danh mục đã tồn tại',
@@ -46,6 +58,7 @@ class CategoriesController extends Controller
         ]);
         $category = new Category();
         $category->title = $data['title'];
+        $category->category_parent = $data['category_parent'];
         $category->description = $data['description'];
         $category->status = $data['status'];
         $category->slug = Str::slug($data['title']);
@@ -74,7 +87,8 @@ class CategoriesController extends Controller
     public function edit(string $id)
     {
         $category = Category::find($id);
-        return view('admin.categories.edit', compact('category'));
+        $categories = $this->getCategoriesProduct();
+        return view('admin.categories.edit', compact('category', 'categories'));
     }
 
     /**
@@ -86,6 +100,7 @@ class CategoriesController extends Controller
             'title' => 'required|max:255',
             'description' => 'required|max:200',
             'status' => 'required',
+            'category_parent' => 'required',
         ],[
             'title.required' => 'Vui lòng nhập tên danh mục',
             'description.required' => 'Vui lòng nhập mô tả',
@@ -94,6 +109,7 @@ class CategoriesController extends Controller
         ]);
         $category = Category::find($id);
         $category->title = $data['title'];
+        $category->category_parent = $data['category_parent'];
         $category->description = $data['description'];
         $category->status = $data['status'];
         $category->slug = Str::slug($data['title']);

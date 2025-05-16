@@ -22,7 +22,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -62,7 +62,8 @@ class GalleryController extends Controller
         }
         
 
-        return redirect()->route('gallery.create')->with('success', 'Thêm ảnh thành công!');
+        return redirect()->back()->with('success', 'Thêm ảnh thành công!');
+
     }
 
     /**
@@ -78,8 +79,9 @@ class GalleryController extends Controller
      */
     public function edit(string $id)
     {
+        $galleries = Gallery::where('tour_id', $id)->get();
         $tour = Tour::find($id);
-        return view('admin.galleries.create', compact('tour', 'id'));
+        return view('admin.galleries.create', compact('tour', 'id', 'galleries'));
     }
 
     /**
@@ -95,6 +97,9 @@ class GalleryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $gallery = Gallery::find($id);
+        $gallery->delete();
+        return redirect()->back()->with('success', 'Xóa ảnh thành công!');
+
     }
 }

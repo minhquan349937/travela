@@ -218,16 +218,87 @@
     {{-- <script src="{{ asset('backend/dist/js/demo.js') }}"></script> --}}
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('backend/dist/js/pages/dashboard3.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/dubrox/Multiple-Dates-Picker-for-jQuery-UI/jquery-ui.multidatespicker.js">
+    </script>
     <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
     <script src=" //cdn.datatables.net/2.3.0/js/dataTables.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
     <script>
         let table = new DataTable('#myTable');
     </script>
     <script>
         $(function() {
+            const today = new Date();
+            const minDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+            $("#departure_date").datepicker({
+                dateFormat: "dd-mm-yy",
+                minDate: minDate, // Disable past dates
+                onClose: function(selectedDate) {
+                    // Set the minimum date for return date
+                    $("#return_date").datepicker("option", "minDate", selectedDate);
+                }
+            });
+            $("#return_date").datepicker({
+                dateFormat: "dd-mm-yy",
+                minDate: minDate // Disable past dates
+            });
+        });
+    </script>
+    <script>
+        $(function() {
+            // Initialize the MultiDatesPicker
+            $("#departure_dates").multiDatesPicker({
+                dateFormat: "dd-mm-yy",
+                minDate: 0, // Disable past dates
+                //maxPicks: 5 // Limit the user to select up to 5 dates
+            });
+        });
+    </script>
+    {{-- <script>
+        $(function() {
             $("#departure_date").datepicker();
             $("#return_date").datepicker();
         });
+    </script> --}}
+    <script type="text/javascript">
+        CKEDITOR.replace('lichtrinh');
+        CKEDITOR.replace('chinhsach');
+        CKEDITOR.replace('baogom');
+        CKEDITOR.replace('khongbaogom');
+
+        function validateForm() {
+            // Ensure CKEditor updates textarea values
+            for (var instance in CKEDITOR.instances) {
+                CKEDITOR.instances[instance].updateElement();
+            }
+
+            // Get values
+            var lichtrinhValue = document.getElementById("lichtrinh").value.trim();
+            var chinhsachValue = document.getElementById("chinhsach").value.trim();
+            var baogomValue = document.getElementById("baogom").value.trim();
+            var khongbaogomValue = document.getElementById("khongbaogom").value.trim();
+
+            // Check if empty
+            if (lichtrinhValue === "") {
+                alert("Yêu cầu điền lịch trình.");
+                return false;
+            }
+            if (chinhsachValue === "") {
+                alert("Yêu cầu điền chính sách.");
+                return false;
+            }
+            if (baogomValue === "") {
+                alert("Yêu cầu điền bao gồm.");
+                return false;
+            }
+            if (khongbaogomValue === "") {
+                alert("Yêu cầu điền không bao gồm.");
+                return false;
+            }
+
+            return true; // Allow form submission
+        }
     </script>
 </body>
 

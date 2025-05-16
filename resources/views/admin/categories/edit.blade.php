@@ -41,6 +41,25 @@
                         <img height="100" width="100"src="{{ asset('uploads/categories/' . $category->image) }}">
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">thuộc danh mục</label>
+                    <select class="form-control" name="category_parent">
+                        <option value="0">Chọn danh mục</option>
+                        @foreach ($categories as $key => $cat)
+                            <option {{ $cat->id == $category->category_parent ? 'selected' : '' }}
+                                value="{{ $cat->id }}">
+                                @php
+                                    $str = '';
+                                    for ($i = 0; $i < $cat->level; $i++) {
+                                        echo $str;
+                                        $str .= '--';
+                                    }
+                                @endphp
+
+                                {{ $cat->title }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="form-check">
                     <input type="checkbox" value="1" {{ $category->status == 1 ? 'checked' : '' }} name="status"
                         class="form-check-input" id="exampleCheck1">

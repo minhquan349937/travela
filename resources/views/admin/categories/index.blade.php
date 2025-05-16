@@ -16,6 +16,7 @@
         @endif
         <!-- /.card-header -->
         <!-- form start -->
+
         <table class="table table-striped" id="myTable">
             <thead>
                 <tr>

@@ -20,43 +20,43 @@
             @csrf
             <div class="card-body">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Title tour</label>
+                    <label for="exampleInputEmail1">Tên tour</label>
                     <input class="form-control" id="exampleInputEmail1" placeholder="Enter Title" name="title">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Quantity</label>
+                    <label for="exampleInputPassword1">số lượng chỗ ngồi</label>
                     <input class="form-control" name="quantity" id="exampleInputPassword1" placeholder="quantity">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Description</label>
+                    <label for="exampleInputPassword1">Mô tả</label>
                     <input class="form-control" name="description" id="exampleInputPassword1" placeholder="description">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Price tour</label>
+                    <label for="exampleInputPassword1">giá tour</label>
                     <input class="form-control" name="price" id="exampleInputPassword1" placeholder="price">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Vehicle</label>
+                    <label for="exampleInputPassword1">phương tiện</label>
                     <input class="form-control" name="vehicle" id="exampleInputPassword1" placeholder="Vehicle">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Ngày đi</label>
-                    <input class="form-control" name="departure_date" id="departure_date" placeholder="Ngày đi">
+                    <input class="form-control" name="departure_date" id="departure_dates" placeholder="Ngày đi">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Ngày về</label>
                     <input class="form-control" name="return_date" id="return_date" placeholder="Ngày về">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Tour form</label>
+                    <label for="exampleInputPassword1">Nơi đi</label>
                     <input class="form-control" name="tour_form" id="exampleInputPassword1" placeholder="tour_form">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Tour to</label>
+                    <label for="exampleInputPassword1">Nơi đến</label>
                     <input class="form-control" name="tour_to" id="exampleInputPassword1" placeholder="tour_to">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Tour time</label>
+                    <label for="exampleInputPassword1">thời gian</label>
                     <input class="form-control" name="tour_time" id="exampleInputPassword1" placeholder="tour_time">
                 </div>
                 <div class="form-group">
@@ -68,7 +68,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputFile">File images</label>
+                    <label for="exampleInputFile">Ảnh</label>
                     <div class="input-group">
                         <div class="custom-file">
                             <input type="file" name= "image" class="form-control-file" id="exampleInputFile">
@@ -79,13 +79,13 @@
                 </div>
                 <div class="form-check">
                     <input type="checkbox" value="1" name="status" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Status</label>
+                    <label class="form-check-label" for="exampleCheck1">Trạng thái</label>
                 </div>
             </div>
             <!-- /.card-body -->
 
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary">Thêm tour</button>
             </div>
         </form>
     </div>

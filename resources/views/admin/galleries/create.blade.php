@@ -42,13 +42,40 @@
 
                     </div>
                 </div>
-            </div>
-            <!-- /.card-body -->
 
-            <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Create</button>
-            </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
         </form>
+        <table class="table table-striped" id="myTable">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Maneger</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($galleries as $key => $gal)
+                    <tr>
+                        <th scope="row">{{ $key }}</th>
+                        <td>{{ $gal->title }}</td>
+                        <td><img height="100" width="100"src="{{ asset('uploads/galleries/' . $gal->image) }}"></td>
 
+                        <td>
+                            <form onsubmit=" return comfirm('Bạn có muốn xóa không?');"
+                                action="{{ route('gallery.destroy', [$gal->id]) }}" method="POST"
+                                style="display:inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 @endsection

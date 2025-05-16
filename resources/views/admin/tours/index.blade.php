@@ -22,6 +22,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Gallery</th>
+                        <th scope="col">Lịch trình</th>
                         <th scope="col">Title</th>
                         <th scope="col">Category</th>
                         <th scope="col">Description</th>
@@ -46,14 +47,34 @@
                             <th scope="row">{{ $key }}</th>
                             <td scope="row"> <a href="{{ route('gallery.edit', [$tour->id]) }}"> Thêm ảnh</a>
                             </td>
+                            <td scope="row"> <a href="{{ route('schedule.edit', [$tour->id]) }}"> Thêm lịch trình</a>
+                            </td>
                             <td>{{ $tour->title }}</td>
                             <td>{{ $tour->category->title }}</td>
                             <td>{{ $tour->description }}</td>
                             <td><img height="100" width="100"src="{{ asset('uploads/tours/' . $tour->image) }}"></td>
-                            <td>{{ number_format($tour->price, 0, ',', '.') }}</td>
+                            <td>{{ number_format($tour->price, 0, ',', '.') }}VNĐ
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#themgia">
+                                    Thêm giá tour
+                                </button>
+
+                            </td>
                             <td>{{ $tour->quantity }}</td>
                             <td>{{ $tour->vehicle }}</td>
-                            <td>{{ $tour->departure_date }}</td>
+                            <td>
+                                @php
+                                    // Convert the string into an array by splitting on commas
+                                    $departureDates = explode(', ', $tour->departure_date);
+                                @endphp
+
+                                @if (!empty($departureDates))
+                                    @foreach ($departureDates as $date)
+                                        <span class="badge rounded-pill bg-primary">{{ $date }}</span>
+                                    @endforeach
+                                @else
+                                    <span class="text-muted">No departure dates available</span>
+                                @endif
+                            </td>
                             <td>{{ $tour->return_date }}</td>
                             <td>{{ $tour->tour_code }}</td>
                             <td>{{ $tour->tour_form }}</td>
@@ -84,5 +105,51 @@
             </table>
         </div>
 
+    </div>
+    <!-- Modal thêm giá -->
+    <div class="modal fade" id="themgia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thêm giá cho tour</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('tourprice.store') }}" method="POST">
+                        @csrf
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    {{-- <th scope="col">Ngày khởi hành</th> --}}
+                                    <th scope="col">Giá người lớn</th>
+                                    <th scope="col">Giá trẻ em</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    {{-- <td>
+                                        <select name="tour_date" id="tour-date-select" class="form-control">
+
+                                        </select>
+                                    </td> --}}
+                                    <td><input type="text" required name="adult" class="form-control"></td>
+                                    <td><input type="text" required name="children" class="form-control"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div id="tour-details">
+                            <!-- Data will be loaded here -->
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="submit" class="btn btn-primary">Cập nhật giá</button>
+                </div>
+                </form>
+            </div>
+        </div>
     </div>
 @endsection
