@@ -86,7 +86,8 @@
                                         <div class="bprice-dt-tour">
                                             <div class="giachitu">Giá chỉ từ</div>
                                             <div class="price-dt-tour col-xs-12">
-                                                <span class="price-sell">{{ number_format($tour->price, 0, ',', '.') }}
+                                                <span
+                                                    class="price-sell">{{ number_format($tour->price_adult, 0, ',', '.') }}
                                                     VNĐ</span>
                                             </div>
                                             <div class="clbook-dt span12">
@@ -101,7 +102,7 @@
                                                     <div class="modal-dialog modal-lg" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Modal title
+                                                                <h5 class="modal-title" id="exampleModalLabel">
                                                                 </h5>
                                                                 <button type="button" class="close" data-dismiss="modal"
                                                                     aria-label="Close">
@@ -172,9 +173,12 @@
                                                                             </thead>
                                                                             <tbody>
                                                                                 <tr>
-                                                                                    <th scope="row">{{ $tour->price }}
+                                                                                    <th scope="row">
+                                                                                        {{ $tour->price_adult }} đ
                                                                                     </th>
-                                                                                    <td>9,760,000 ₫</td>
+                                                                                    <th scope="row">
+                                                                                        {{ $tour->price_children }} đ
+                                                                                    </th>
                                                                                 </tr>
 
                                                                             </tbody>
@@ -211,7 +215,7 @@
                                                                                     oninput="this.setCustomValidity('')">
                                                                             </div>
                                                                             <div class="form-group">
-                                                                                <label for="exampleInputEmail1">Điện
+                                                                                <label for="exampleInputEmail1">Số điện
                                                                                     thoại</label>
                                                                                 <input type="text" name="phone"
                                                                                     required
@@ -227,8 +231,7 @@
                                                                                 <label for="exampleInputEmail1">Yêu
                                                                                     cầu</label>
                                                                                 <textarea required name="note" placeholder="Nhập yêu cầu cần thiết" class="form-control" id="exampleInputEmail1"
-                                                                                    aria-describedby="emailHelp" oninvalid="this.setCustomValidity('Nhập yêu cầu chi tiết của quý khách...')"
-                                                                                    oninput="this.setCustomValidity('')"></textarea>
+                                                                                    aria-describedby="emailHelp"></textarea>
 
                                                                             </div>
 
@@ -259,8 +262,8 @@
                                                                                 function updateTotal() {
                                                                                     var adult = parseInt(document.getElementById('adult').value) || 0;
                                                                                     var children = parseInt(document.getElementById('children').value) || 0;
-                                                                                    var price_adult = {{ $tour->price }};
-                                                                                    var price_children = Math.round(price_adult * 0.7); // 70% giá người lớn
+                                                                                    var price_adult = {{ $tour->price_adult }};
+                                                                                    var price_children = {{ $tour->price_children }}; // 70% giá người lớn
 
                                                                                     var total = (adult * price_adult) + (children * price_children);
 
@@ -269,8 +272,8 @@
                                                                                 }
                                                                             </script>
                                                                         @endpush
-                                                                        <button type="submit"
-                                                                            class="btn btn-primary">Đăng ký
+                                                                        <button type="submit" class="btn btn-primary">Đặt
+                                                                            tour
                                                                             tour</button>
 
                                                                     </div>
@@ -279,7 +282,7 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Đăng ký tour</button>
+                                                                    data-dismiss="modal">Đặt tour</button>
 
                                                             </div>
                                                         </div>
@@ -295,17 +298,13 @@
                     <div class="w100 fl"></div>
                     <div class="b-detail-ct-tour w100 fl top-20">
                         <ul class="nav nav-tabs tab-dt-tour">
-                            <li class="active"><a data-toggle="tab" href="#mota">Mô tả tour</a></li>
-                            <li><a data-toggle="tab" href="#lichtrinh">Lịch trình tour</a></li>
+                            <li class="active"><a data-toggle="tab" href="#lichtrinh">Lịch trình tour</a></li>
                             <li><a data-toggle="tab" href="#chinhsach">Chính sách</a></li>
                             <li><a data-toggle="tab" href="#baogom">Bao gồm</a></li>
                             <li><a data-toggle="tab" href="#khongbaogom">Không bao gồm</a></li>
                             <li id="tit_tab_booking"><a data-toggle="tab" href="#anhtour">Ảnh du lịch</a></li>
                         </ul>
                         <div class="tab-content">
-                            <div id="mota" class="tab-pane fade in active">
-                                {!! $tour->description !!}
-                            </div>
                             <div id="lichtrinh" class="tab-pane fade">
                                 <h4>Lịch trình tour</h4>
                                 @if (!empty($schedule))
@@ -349,11 +348,10 @@
                         <ul>
 
                             <li>
-                                <div class="lisup1"><span class="namesup">Miss. Hằng: </span><span
-                                        class="phonesup">(0904)
-                                        577- 548</span></div>
+                                <div class="lisup1"><span class="namesup">Miss. Quốc: </span><span
+                                        class="phonesup">0383041692</span></div>
                                 <div class="blisup2">
-                                    <a href="#0904577548" class="zalo-icon"><img
+                                    <a href="#0383041692" class="zalo-icon"><img
                                             src="https://vietnamtravel.net.vn/assets/desktop/images/zalo.png"
                                             alt="a"></a>
                                     <a href="skype:0904577548?chat" class="skype-icon"><img
@@ -411,21 +409,21 @@
                                         <div class="col-md-6 col-xs-7 date-start">
                                             <span class="lst-icon1"><i class="fa fa-calendar"></i> </span>
                                             <span>
-                                                Thứ 2, Thứ 3, Thứ 4, Chủ nhật Hàng Tuần </span>
+                                                {{ $related->departure_date }} </span>
                                         </div>
                                         <div class="col-md-6 col-xs-5 date-range">
-                                            <span class="lst-icon1"><i class="fa fa-clock-o"></i></span><span> 4
-                                                Ngày</span>
+                                            <span class="lst-icon1"><i class="fa fa-clock-o"></i></span>
+                                            <span> {{ $related->tour_time }}</span>
                                         </div>
                                     </div>
                                     <div class="group-localtion w100 fl">
                                         <div class="col-md-6 col-xs-7 map-maker">
-                                            <span class="lst-icon1"><i class="fa fa-map-marker"></i></span><span> Khởi
-                                                hành 63 tỉnh/TP</span>
+                                            <span class="lst-icon1"><i class="fa fa-map-marker"></i></span>
+                                            <span>Khởi hành: {{ $related->tour_from }}</span>
                                         </div>
                                         <div class="col-md-6 col-xs-5 numner-sit">
-                                            <span class="lst-icon1"><i class="fa fa-users"></i></span><span> Số chỗ:
-                                                14</span>
+                                            <span class="lst-icon1"><i class="fa fa-users"></i></span>
+                                            <span> Số chỗ: {{ $related->tour_quantity }}</span>
                                         </div>
                                     </div>
 
@@ -443,24 +441,6 @@
             </div>
         </div>
     </div>
-    {{-- @push('scripts')
-        <script>
-            function updateTotal() {
-                var adult = parseInt(document.getElementById('adult').value) || 0;
-                var children = parseInt(document.getElementById('children').value) || 0;
-                var price_adult = {{ $tour->price }};
-                var price_children = Math.round(price_adult * 0.7); // 70% giá người lớn
-
-                var total = (adult * price_adult) + (children * price_children);
-
-                document.getElementById('total_price').innerText = total.toLocaleString('vi-VN');
-            }
-            // Gọi khi trang/modal load lần đầu
-            document.addEventListener('DOMContentLoaded', function() {
-                updateTotal();
-            });
-        </script>
-    @endpush --}}
     <style>
         ul.heateor_sss_sharing_ul {
             list-style: none !important;

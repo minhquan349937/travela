@@ -36,9 +36,14 @@
                         id="exampleInputPassword1" placeholder="description">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Giá Tour</label>
-                    <input class="form-control" value="{{ $tour->price }}" name="price" id="exampleInputPassword1"
-                        placeholder="price">
+                    <label for="exampleInputPassword1">Giá người lớn</label>
+                    <input class="form-control" value="{{ $tour->price_adult }}" name="price_adult"
+                        id="exampleInputPassword1" placeholder="price">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Giá trẻ em</label>
+                    <input class="form-control" value="{{ $tour->price_children }}" name="price_children"
+                        id="exampleInputPassword1" placeholder="price_children">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Phương tiện</label>

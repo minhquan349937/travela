@@ -32,8 +32,13 @@
                     <input class="form-control" name="description" id="exampleInputPassword1" placeholder="description">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">giá tour</label>
-                    <input class="form-control" name="price" id="exampleInputPassword1" placeholder="price">
+                    <label for="exampleInputPassword1">giá người lớn</label>
+                    <input class="form-control" name="price_adult" id="exampleInputPassword1" placeholder="price_adult">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">giá trẻ em</label>
+                    <input class="form-control" name="price_children" id="exampleInputPassword1"
+                        placeholder="price_children">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">phương tiện</label>

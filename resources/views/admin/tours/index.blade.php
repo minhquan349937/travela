@@ -3,7 +3,7 @@
 @section('content')
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">List Tour</h3>
+            <h3 class="card-title">Danh sách Tour</h3>
         </div>
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -23,22 +23,23 @@
                         <th scope="col">#</th>
                         <th scope="col">Gallery</th>
                         <th scope="col">Lịch trình</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Vehicle</th>
-                        <th scope="col">Departure_date</th>
-                        <th scope="col">Return_date</th>
-                        <th scope="col">Tour_code</th>
-                        <th scope="col">Tour_form</th>
-                        <th scope="col">Tour_to</th>
-                        <th scope="col">Tour_time</th>
-                        <th scope="col">Updated_at</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Manager</th>
+                        <th scope="col">Tiêu đề</th>
+                        <th scope="col">Danh mục</th>
+                        <th scope="col">Mô tả</th>
+                        <th scope="col">Ảnh</th>
+                        <th scope="col">Giá người lớn</th>
+                        <th scope="col">Giá trẻ em</th>
+                        <th scope="col">Số lượng chỗ</th>
+                        <th scope="col">Phương tiện</th>
+                        <th scope="col">Ngày đi</th>
+                        <th scope="col">Ngày về</th>
+                        <th scope="col">Mã tour</th>
+                        <th scope="col">Nơi đi</th>
+                        <th scope="col">Nơi về</th>
+                        <th scope="col">Thời gian</th>
+                        <th scope="col">Ngày cập nhật</th>
+                        <th scope="col">Trạng thái</th>
+                        <th scope="col">Quản lý</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,12 +54,9 @@
                             <td>{{ $tour->category->title }}</td>
                             <td>{{ $tour->description }}</td>
                             <td><img height="100" width="100"src="{{ asset('uploads/tours/' . $tour->image) }}"></td>
-                            <td>{{ number_format($tour->price, 0, ',', '.') }}VNĐ
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#themgia">
-                                    Thêm giá tour
-                                </button>
-
+                            <td>{{ number_format($tour->price_adult, 0, ',', '.') }}VNĐ
                             </td>
+                            <td>{{ number_format($tour->price_children, 0, ',', '.') }}VNĐ
                             <td>{{ $tour->quantity }}</td>
                             <td>{{ $tour->vehicle }}</td>
                             <td>

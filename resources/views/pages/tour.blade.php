@@ -8,8 +8,8 @@
                             style="width: 80px;">{{ $category->title }}</h2>
                 </div>
                 <!-- <div class=" w100 fl child-lst-tour2">
-                                                                                                                                                               <img src="https://vietnamtravel.net.vn/assets/desktop/images/icon-tit2.png" alt="icon">
-                                                                                                                                                               </div> -->
+                                                                                                                                                                   <img src="https://vietnamtravel.net.vn/assets/desktop/images/icon-tit2.png" alt="icon">
+                                                                                                                                                                   </div> -->
             </div>
             <div class="col-md-12 col-xs-12 bx-content-lst-tour">
                 <div class="row">
@@ -54,7 +54,7 @@
                                     {{ $tour->note ?? 'Khuyến mãi 200K cho nhóm khách 5 người trở lên' }}
                                 </div>
                                 <div class="group-book w100 fl">
-                                    <span class="price-sell">{{ number_format($tour->price, 0, ',', '.') }}
+                                    <span class="price-sell">{{ number_format($tour->price_adult, 0, ',', '.') }}
                                         VNĐ</span>
                                     <a href="{{ route('chi-tiet-tour', [$tour->slug]) }}"
                                         class="link-book btn_view_tour0">Xem chi tiết</a>

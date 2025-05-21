@@ -289,67 +289,29 @@
                             <ul class="ulwap-mainmenu">
                                 <li><a href="{{ route('home') }}" class="mn-home"><i class="fa fa-home"></i></a>
                                 </li>
-                                <li class="megamenusub" style="border-color:white">
-                                    <a href="{{ route('tour', ['du-lich-noi-dia']) }}" class=" 'active' ">
-                                        Du lịch trong nước
-                                    </a>
-                                    <ul>
-                                        <li class="" style="border-color:white">
-                                            <a href="{{ route('tour', ['du-lich-mien-bac']) }}" class="">
-                                                <i class="fa fa-map-marker"></i> Du lịch Miền Bắc
+                                @foreach ($categories as $key => $cate)
+                                    @if ($cate->category_parent == 0)
+                                        <li class="megamenusub" style="border-color:white">
+                                            <a href="{{ route('tour', [$cate->slug]) }}" class=" 'active' ">
+                                                {{ $cate->title }}
                                             </a>
-                                        </li>
+                                            <ul>
+                                                @foreach ($categories as $key => $sub_cate)
+                                                    @if ($sub_cate->category_parent == $cate->id)
+                                                        <li class="" style="border-color:white">
+                                                            <a href="{{ route('tour', [$sub_cate->slug]) }}"
+                                                                class="">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                {{ $sub_cate->title }}
+                                                            </a>
+                                                        </li>
+                                                    @endif
+                                                @endforeach
 
-                                        <li class="" style="border-color:white">
-                                            <a href="{{ route('tour', ['du-lich-mien-trung']) }}" class="">
-                                                <i class="fa fa-map-marker"></i> Du lịch Miền Trung
-                                            </a>
+                                            </ul>
                                         </li>
-
-                                        <li class="" style="border-color:white">
-                                            <a href="{{ route('tour', ['du-lich-mien-nam']) }}" class="">
-                                                <i class="fa fa-map-marker"></i> Du Lịch Miền Nam
-                                            </a>
-                                        </li>
-
-
-                                    </ul>
-                                </li>
-                                <li class="megamenusub" style="border-color:white">
-                                    <a href="{{ route('tour', ['du-lich-noi-dia']) }}" class=" 'active' ">
-                                        Du lịch nước ngoài
-                                    </a>
-                                    <ul>
-                                        <li class="" style="border-color:white">
-                                            <a href="{{ route('tour', ['du-lich-han-quoc']) }}" class="">
-                                                <i class="fa fa-map-marker"></i> Du lịch Hàn Quốc
-                                            </a>
-                                        </li>
-
-                                        <li class="" style="border-color:white">
-                                            <a href="{{ route('tour', ['du-lich-thai-lan']) }}" class="">
-                                                <i class="fa fa-map-marker"></i> Du lịch Thái Lan
-                                            </a>
-                                        </li>
-
-                                        <li class="" style="border-color:white">
-                                            <a href="{{ route('tour', ['du-lich-uc']) }}" class="">
-                                                <i class="fa fa-map-marker"></i> Du Lịch Úc
-                                            </a>
-                                        </li>
-                                        <li class="" style="border-color:white">
-                                            <a href="{{ route('tour', ['du-lich-singapore']) }}" class="">
-                                                <i class="fa fa-map-marker"></i> Du lịch Singapore
-                                            </a>
-                                        </li>
-                                        <li class="" style="border-color:white">
-                                            <a href="{{ route('tour', ['du-lich-nhat-ban']) }}" class="">
-                                                <i class="fa fa-map-marker"></i> Du lịch Nhật Bản
-                                            </a>
-                                        </li>
-
-                                    </ul>
-                                </li>
+                                    @endif
+                                @endforeach
                                 <li class="" style="border-color:white">
                                     <a href="#" class=" 'active' ">
                                         Dịch vụ

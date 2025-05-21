@@ -3,7 +3,7 @@
 @section('content')
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Update Category</h3>
+            <h3 class="card-title">Cập nhật danh mục</h3>
         </div>
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -21,21 +21,21 @@
             @csrf
             <div class="card-body">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Title</label>
-                    <input class="form-control" id="exampleInputEmail1" value="{{ $category->title }}"
-                        placeholder="Enter Title" name="title">
+                    <label for="exampleInputEmail1">Tiêu đề</label>
+                    <input class="form-control" id="exampleInputEmail1" value="{{ $category->title }}" placeholder="Tiêu đề"
+                        name="title">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Description</label>
+                    <label for="exampleInputPassword1">Mô tả</label>
                     <input class="form-control" name="description" value="{{ $category->description }}"
-                        id="exampleInputPassword1" placeholder="description">
+                        id="exampleInputPassword1" placeholder="Mô tả">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputFile">File images</label>
+                    <label for="exampleInputFile">Ảnh</label>
                     <div class="input-group">
                         <div class="custom-file">
                             <input type="file" name= "image" class="form-control-file" id="exampleInputFile">
-                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            <label class="custom-file-label" for="exampleInputFile">Chọn ảnh</label>
 
                         </div>
                         <img height="100" width="100"src="{{ asset('uploads/categories/' . $category->image) }}">
@@ -63,13 +63,13 @@
                 <div class="form-check">
                     <input type="checkbox" value="1" {{ $category->status == 1 ? 'checked' : '' }} name="status"
                         class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Status</label>
+                    <label class="form-check-label" for="exampleCheck1">Trạng thái</label>
                 </div>
             </div>
             <!-- /.card-body -->
 
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">Cập nhật</button>
             </div>
         </form>
     </div>

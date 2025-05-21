@@ -28,6 +28,7 @@
                         <th scope="col">Số điện thoại</th>
                         <th scope="col">Ngày đặt</th>
                         <th scope="col">Ngày cập nhật</th>
+                        <th scope="col">Tổng tiền</th>
                         <th scope="col">Tình trạng</th>
                         <th scope="col">Quản lý</th>
                     </tr>
@@ -45,6 +46,8 @@
                             <td>{{ $booking->phone }}</td>
                             <td>{{ $booking->created_at }}</td>
                             <td>{{ $booking->updated_at }}</td>
+                            <td>{{ number_format($booking->total_price, 0, '', '.') }} VNĐ</td>
+
                             <td>
                                 @if ($booking->status == 0)
                                     <span class="text text-warning">Đang chờ xử lý</span>

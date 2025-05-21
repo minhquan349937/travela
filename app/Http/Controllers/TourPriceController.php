@@ -32,7 +32,7 @@ class TourPriceController extends Controller
         $data = $request->all();
         $tourprice = new TourPrice();
         $tourprice->tour_id = $data['tour_id'];
-        $tourprice->adult = $data['tour_id'];
+        $tourprice->adult = $data['price_adult'];
         $tourprice->children = $data['children'];
         $tourprice->save();
         toastr()->success('Thêm giá cho tour thành công.');

@@ -45,7 +45,7 @@ class CategoriesController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|unique:categories|max:255',
-            'description' => 'required|max:200',
+            'description' => 'required',
             'image' => 'required',
             'status' => 'required',
             'category_parent' => 'required',
@@ -98,7 +98,7 @@ class CategoriesController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|max:255',
-            'description' => 'required|max:200',
+            'description' => 'required',
             'status' => 'required',
             'category_parent' => 'required',
         ],[

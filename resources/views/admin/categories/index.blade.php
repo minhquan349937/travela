@@ -3,7 +3,7 @@
 @section('content')
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">List Category</h3>
+            <h3 class="card-title">Danh sách danh mục</h3>
         </div>
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -21,13 +21,13 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Image</th>
+                    <th scope="col">Tiêu đề</th>
+                    <th scope="col">Mô tả</th>
+                    <th scope="col">ảnh</th>
                     <th scope="col">Slug</th>
-                    <th scope="col">Created date</th>
-                    <th scope="col">Updated date</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Ngày tạo</th>
+                    <th scope="col">Ngày cập nhật</th>
+                    <th scope="col">Trạng thái</th>
                     <th scope="col">Maneger</th>
                 </tr>
             </thead>

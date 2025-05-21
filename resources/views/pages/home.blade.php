@@ -54,7 +54,7 @@
                                             {{ $tour->note ?? 'Khuyến mãi 200K cho nhóm khách 5 người trở lên' }}
                                         </div>
                                         <div class="group-book w100 fl">
-                                            <span class="price-sell">{{ number_format($tour->price, 0, ',', '.') }}
+                                            <span class="price-sell">{{ number_format($tour->price_adult, 0, ',', '.') }}
                                                 VNĐ</span>
                                             <a href="{{ route('chi-tiet-tour', [$tour->slug]) }}"
                                                 class="link-book btn_view_tour0">Xem chi tiết</a>
