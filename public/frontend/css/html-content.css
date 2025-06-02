@@ -1,0 +1,85 @@
+/* CSS để định dạng nội dung HTML từ CKEditor */
+.html-content {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.html-content p {
+    margin-bottom: 15px;
+}
+
+.html-content h1, .html-content h2, .html-content h3, .html-content h4 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.html-content h1 {
+    font-size: 26px;
+}
+
+.html-content h2 {
+    font-size: 22px;
+}
+
+.html-content h3 {
+    font-size: 18px;
+}
+
+.html-content ul, .html-content ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+}
+
+.html-content ul li, .html-content ol li {
+    margin-bottom: 5px;
+}
+
+.html-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.html-content table, .html-content th, .html-content td {
+    border: 1px solid #ddd;
+}
+
+.html-content th, .html-content td {
+    padding: 8px;
+    text-align: left;
+}
+
+.html-content th {
+    background-color: #f5f5f5;
+}
+
+.html-content blockquote {
+    border-left: 5px solid #eee;
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-style: italic;
+}
+
+/* Đảm bảo hình ảnh không vượt quá kích thước container */
+.html-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Giữ định dạng tron nội dung HTML */
+.html-content pre, .html-content code {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: monospace;
+    white-space: pre-wrap;
+}
+
+/* Đảm bảo các đường line break được giữ nguyên */
+.html-content {
+    white-space: pre-line;
+} 
