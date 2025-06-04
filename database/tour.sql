@@ -35,7 +35,7 @@ CREATE TABLE tours (
     price_children INT NOT NULL,
     quantity INT NOT NULL,
     vehicle VARCHAR(100) NULL DEFAULT NULL,
-    departure_date DATE NOT NULL,
+    departure_date TEXT NOT NULL,
     slug VARCHAR(255),
     tour_code VARCHAR(50) NOT NULL UNIQUE,
     tour_form VARCHAR(100) NULL DEFAULT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE tours (
 CREATE TABLE bookings (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     tour_id BIGINT UNSIGNED NOT NULL,
-    date_departure DATE NOT NULL,
+    date_departure TEXT NOT NULL,
     fullname VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
     note TEXT NULL DEFAULT NULL,

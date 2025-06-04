@@ -16,8 +16,10 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="//cdn.datatables.net/2.3.0/css/dataTables.dataTables.min.css">
+
 
 </head>
 <!--
@@ -71,26 +73,30 @@
                     </div>
                 </li>
 
-
+                <!-- Add Logout Button -->
+                <li class="nav-item">
+                    <form action="{{ route('logout') }}" method="POST" style="margin: 0; padding: 0;">
+                        @csrf
+                        <button type="submit" class="btn btn-link nav-link">
+                            <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                        </button>
+                    </form>
+                </li>
             </ul>
         </nav>
         <!-- /.navbar -->
-
         <!-- Main Sidebar Container -->
         @include('layouts.include.sidebar')
-
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             @yield('content')
         </div>
         <!-- /.content-wrapper -->
-
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
         </aside>
         <!-- /.control-sidebar -->
-
         <!-- Main Footer -->
         {{-- <footer class="main-footer">
             <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
@@ -101,16 +107,22 @@
         </footer> --}}
     </div>
     <!-- ./wrapper -->
-
-    <!-- REQUIRED SCRIPTS -->
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+        <!-- REQUIRED SCRIPTS -->
+        <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> 3.2.0
+        </div>
+    </footer>
 
     <!-- jQuery -->
-    <script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
     <!-- Bootstrap -->
     <script src="{{ asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE -->
     <script src="{{ asset('backend/dist/js/adminlte.js') }}"></script>
-
     <!-- OPTIONAL SCRIPTS -->
     <script src="{{ asset('backend/plugins/chart.js/Chart.min.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
@@ -119,12 +131,12 @@
     <script src="{{ asset('backend/dist/js/pages/dashboard3.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/gh/dubrox/Multiple-Dates-Picker-for-jQuery-UI/jquery-ui.multidatespicker.js">
     </script>
-    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
     <script src=" //cdn.datatables.net/2.3.0/js/dataTables.min.js"></script>
     <script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
     @stack('scripts')
     <script>
+        // AdminLTE dashboard demo (This is only for demo purposes)
         let table = new DataTable('#myTable');
     </script>
     <script>
@@ -143,16 +155,17 @@
             $("#return_date").datepicker({
                 dateFormat: "dd-mm-yy",
                 minDate: minDate // Disable past dates
+            }).on("close", function(selectedDate) {
+                // Set the minimum date for return date
+                $("#return_date").datepicker("option", "minDate", selectedDate);
             });
         });
     </script>
     <script>
-        $(function() {
-            // Initialize the MultiDatesPicker
+        $(document).ready(function() {
             $("#departure_dates").multiDatesPicker({
                 dateFormat: "dd-mm-yy",
-                minDate: 0, // Disable past dates
-                //maxPicks: 5 // Limit the user to select up to 5 dates
+                minDate: 0 // Disable past dates
             });
         });
     </script>
@@ -197,14 +210,12 @@
                 alert("Yêu cầu điền không bao gồm.");
                 return false;
             }
-
             return true; // Allow form submission
         }
     </script>
     @php
         $categories = App\Models\Category::where('category_parent', 0)->get();
     @endphp
-
     <li class="nav-item dropdown">
         {{-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
@@ -232,7 +243,6 @@
             @endforeach
         </ul>
     </li>
-
     <style>
         .dropdown-menu li {
             position: relative;
@@ -252,6 +262,22 @@
         .dropdown-menu .dropdown-submenu-left {
             right: 100%;
             left: auto;
+        }
+
+        .nav-item form {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item form button {
+            color: #007bff;
+            text-decoration: none;
+            padding: 8px;
+        }
+
+        .nav-item form button:hover {
+            color: #0056b3;
         }
     </style>
 </body>

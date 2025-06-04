@@ -36,7 +36,7 @@ class ToursController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|unique:tours,title',
-            'description' => 'required',
+            'description' => 'nullable',
             'quantity' => 'required',
             'price_adult' => 'required',
             'price_children' => 'required',
@@ -128,7 +128,7 @@ class ToursController extends Controller
     {
         $data = $request->validate([
             'title' => 'required',
-            'description' => 'required',
+            'description' => 'nullable',
             'quantity' => 'required',
             'price_adult' => 'required',
             'price_children' => 'required',
@@ -171,7 +171,8 @@ class ToursController extends Controller
             $tour->note = $data['note'];
             $tour->status = $data['status'];
             $tour->slug = Str::slug($data['title']);
-            $tour->tour_code = $tour->tour_code; 
+            $tour->tour_code = rand(0000,9999);
+            // $tour->tour_code = $tour->tour_code; 
             
             if ($request->image) {
                 // Upload new image
@@ -183,9 +184,10 @@ class ToursController extends Controller
                 $get_image->move($path, $new_image);
                 $tour->image = $new_image;
             }
-
+            toastr()->success('Data has been saved successfully!', 'Congrats');
             // Save the updated tour
             if ($tour->save()) {
+                
                 return redirect()->route('tours.index')->with('success', 'Cập nhật tour thành công!');
             } else { 
                 return redirect()->route('tours.index')->with('error', 'Cập nhật tour thất bại!');

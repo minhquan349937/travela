@@ -51,15 +51,16 @@
                         placeholder="Phương tiện">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Ngày đi</label>
-                    <input class="form-control" value="{{ old('departure_date', trim($tour->departure_date, '"')) }}"
-                        name="departure_date" id="departure_dates" placeholder="Ngày đi">
+                    <label for="departure_date">Ngày đi</label>
+                    <input type="text" class="form-control"
+                        value="{{ old('departure_date', trim($tour->departure_date, '"')) }}" name="departure_date"
+                        id="departure_dates" placeholder="Ngày đi" autocomplete="off">
                 </div>
                 <!-- <div class="form-group">
-                                    <label for="exampleInputPassword1">Ngày về</label>
-                                    <input class="form-control" value="{{ $tour->return_date }}" name="return_date" id="return_date"
-                                        placeholder="Ngày về">
-                                </div> -->
+                                            <label for="exampleInputPassword1">Ngày về</label>
+                                            <input class="form-control" value="{{ $tour->return_date }}" name="return_date" id="return_date"
+                                                placeholder="Ngày về">
+                                        </div> -->
                 <div class="form-group">
                     <label for="exampleInputPassword1">Nơi đi</label>
                     <input class="form-control" value="{{ $tour->tour_form }}" name="tour_form" id="exampleInputPassword1"

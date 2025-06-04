@@ -10,6 +10,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\TourPriceController;
 use App\Models\TourPrice;
 use App\Http\Controllers\TourController;
+use App\Http\Controllers\CustomerController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +23,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::get('/tour/{slug?}', [IndexController::class, 'tour'])->name('tour');
 Route::get('/chi-tiet-tour/{slug}', [IndexController::class, 'detail_tour'])->name('chi-tiet-tour');
-Route::get('/gioi-thieu', [IndexController::class, 'about'])->name('gioi-thieu');
+Route::get('/gioi-thieu', [App\Http\Controllers\AboutController::class, 'index'])->name('gioi-thieu');
 Route::get('/lien-he', [IndexController::class, 'contact'])->name('lien-he');
 
 
@@ -63,9 +64,11 @@ Route::get('/category/{id}/subcategories', [CategoriesController::class, 'showSu
 Route::post('/tour/{id}/update-status', [CategoriesController::class, 'updateTourStatus'])->name('tour.update-status');
 
 // Thêm routes cho thống kê
-Route::prefix('admin')->middleware(['auth'])->group(function() {
+Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/statistics', [App\Http\Controllers\StatisticController::class, 'index'])->name('admin.statistics');
     Route::get('/statistics/date-range', [App\Http\Controllers\StatisticController::class, 'getRevenueByDateRange'])->name('admin.statistics.date-range');
     Route::get('/statistics/yearly', [App\Http\Controllers\StatisticController::class, 'getYearlyRevenue'])->name('admin.statistics.yearly');
     Route::get('/statistics/top-tours', [App\Http\Controllers\StatisticController::class, 'getTopToursDetail'])->name('admin.statistics.top-tours');
+    Route::get('/admin/customers', [App\Http\Controllers\CustomerController::class, 'index'])->name('customers.index');
+    Route::get('/admin/customers/{phone}/bookings', [App\Http\Controllers\CustomerController::class, 'bookings'])->name('customers.bookings');
 });

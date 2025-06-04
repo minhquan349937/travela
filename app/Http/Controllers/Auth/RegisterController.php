@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login'; // Thay đổi redirect path sau khi đăng ký
 
     /**
      * Create a new controller instance.
@@ -66,7 +66,20 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => $data['password'], // Remove Hash::make()
         ]);
+    }
+
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function registered($request, $user)
+    {
+        auth()->logout(); // Logout user
+        return redirect('/login')->with('success', 'Đăng ký thành công! Vui lòng đăng nhập.');
     }
 }

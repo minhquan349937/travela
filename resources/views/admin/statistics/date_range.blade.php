@@ -46,8 +46,6 @@
                                     <div class="col-md-4">
                                         <div class="form-group" style="margin-top: 32px;">
                                             <button type="submit" class="btn btn-primary">Xem thống kê</button>
-                                            <button type="button" class="btn btn-info ml-2" id="btnExport">Xuất
-                                                Excel</button>
                                         </div>
                                     </div>
                                 </div>

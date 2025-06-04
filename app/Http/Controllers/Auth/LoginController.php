@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -25,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/home'; // Thay đổi từ /admin/home thành /home
 
     /**
      * Create a new controller instance.
@@ -36,5 +39,30 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
         $this->middleware('auth')->only('logout');
+    }
+
+    /**
+     * Override the attemptLogin method to bypass password hashing.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    protected function attemptLogin(Request $request)
+    {
+        $credentials = $this->credentials($request);
+        $user = $this->guard()->getProvider()->retrieveByCredentials($credentials);
+
+        if ($user && $credentials['password'] === $user->password) {
+            $this->guard()->login($user, $request->boolean('remember'));
+            return true;
+        }
+
+        return false;
+    }
+
+    // Thêm method này để xử lý redirect sau logout
+    protected function loggedOut($request)
+    {
+        return redirect('/login');
     }
 }

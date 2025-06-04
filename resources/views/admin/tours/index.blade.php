@@ -80,7 +80,7 @@
                             <td>{{ $tour->tour_to }}</td>
                             <td>{{ $tour->tour_time }}</td>
                             <td>{{ $tour->note }}</td>
-                            <td>{{ $tour->created_at }}</td>
+                            <td>{{ $tour->updated_at }}</td>
 
                             <td>
                                 @if ($tour->status == 1)

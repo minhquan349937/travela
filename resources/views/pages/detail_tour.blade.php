@@ -245,7 +245,7 @@
                                                                             <h3>Số lượng khách</h3>
                                                                             <p>Người lớn</p>
                                                                             <input class="form-control" type="number"
-                                                                                min="1" value="1"
+                                                                                min="0" value="0"
                                                                                 name="adult" id="adult"
                                                                                 onchange="updateTotal()">
                                                                             <p>Trẻ em</p>
@@ -305,7 +305,7 @@
                             <li class="active"><a data-toggle="tab" href="#lichtrinh">Lịch trình tour</a></li>
                             <li><a data-toggle="tab" href="#chinhsach">Chính sách</a></li>
                             <!-- <li><a data-toggle="tab" href="#baogom">Bao gồm</a></li>
-                                                    <li><a data-toggle="tab" href="#khongbaogom">Không bao gồm</a></li> -->
+                                                        <li><a data-toggle="tab" href="#khongbaogom">Không bao gồm</a></li> -->
                             <li id="tit_tab_booking"><a data-toggle="tab" href="#anhtour">Ảnh du lịch</a></li>
                         </ul>
                         <div class="tab-content">

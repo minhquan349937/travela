@@ -73,14 +73,14 @@
                         @endforeach
 
                         <!-- Nút xem thêm tour nổi bật -->
-                        <div class="col-md-12">
+                        {{-- <div class="col-md-12">
                             <div class="view-more-tours text-center" style="margin: 20px 0 30px;">
                                 <a href="{{ route('tour', ['tour-noi-bat']) }}" class="btn-view-more">
                                     <span>Xem thêm</span>
                                     <i class="fa fa-angle-double-right"></i>
                                 </a>
                             </div>
-                        </div>
+                        </div> --}}
                     @else
                         <div class="col-md-12">
                             <p class="text-center">Không có tour nổi bật nào.</p>

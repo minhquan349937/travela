@@ -31,7 +31,7 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title' => 'required',
+            'title' => 'nullable',
             'image' => 'required|max:2048',
             'tour_id' => 'required',
         ],[

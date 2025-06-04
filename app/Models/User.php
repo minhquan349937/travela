@@ -29,7 +29,6 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 
@@ -44,5 +43,23 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // Override để không kiểm tra Bcrypt
+    public function getAuthPassword()
+    {
+        return $this->password;
+    }
+
+    // Override để không hash password khi set
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = $value;
+    }
+
+    public function validateCredentials(array $credentials)
+    {
+        $plain = $credentials['password'];
+        return $plain == $this->getAuthPassword();
     }
 }

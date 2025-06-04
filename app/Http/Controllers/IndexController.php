@@ -22,7 +22,7 @@ class IndexController extends Controller
             ->select('tour_id', DB::raw('COUNT(*) as booking_count'))
             ->groupBy('tour_id')
             ->orderBy('booking_count', 'desc')
-            ->limit(6)
+            ->limit(9)
             ->pluck('tour_id');
             
         $featuredTours = [];

@@ -9,4 +9,9 @@ class Booking extends Model
 {
     use HasFactory;
     protected $table = 'bookings';
+
+    public function tour()
+    {
+        return $this->belongsTo(Tour::class);
+    }
 }

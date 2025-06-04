@@ -137,6 +137,7 @@
     <script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('frontend/js/owl.carousel.min.js') }}" type="text/javascript"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Js menu mobile-->
     <script>
         jQuery(document).ready(function() {
@@ -343,7 +344,7 @@
                                         </li>
                                     @endif
                                 @endforeach
-                                <li class="" style="border-color:white">
+                                {{-- <li class="" style="border-color:white">
                                     <a href="#" class=" 'active' ">
                                         Dịch vụ
                                     </a>
@@ -359,12 +360,12 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </li>
-                                {{-- <li class="" style="border-color:white">
+                                </li> --}}
+                                <li class="" style="border-color:white">
                                     <a href="{{ route('gioi-thieu') }}">
                                         Giới thiệu
                                     </a>
-                                </li> --}}
+                                </li>
                                 <li class="" style="border-color:white">
                                     <a href="{{ route('lien-he') }}">
                                         Liên hệ
